@@ -1,14 +1,10 @@
 class CartItem {
-  constructor(id, ownerId, title, imageUrl, description, price) {
-    this.id = id,
-      this.ownerId = ownerId,
-      this.title = title,
-      this.imageUrl = imageUrl,
-      this.description = description,
-      this.price = price
+  constructor(quantity, productPrice, productTitle, sum) {
+    this.quantity = quantity;
+    this.productPrice = productPrice;
+    this.productTitle = productTitle;
+    this.sum = sum;
   }
-
 }
-
 
 export default CartItem;

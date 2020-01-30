@@ -1,12 +1,14 @@
 class Product {
-  constructor(quantity, productPrice, productTitle, sum) {
-    this.quantity = quantity,
-      this.productTitle = productTitle,
-      this.productPrice = productPrice,
-      this.sum = sum
+  constructor(id, ownerId, title, imageUrl, description, price) {
+    this.id = id;
+    this.ownerId = ownerId;
+    this.imageUrl = imageUrl;
+    this.title = title;
+    this.description = description;
+    this.price = price;
   }
 
 }
 
 
-export default Product;
+export default Product; 

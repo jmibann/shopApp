@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font'
 
 import productsReducer from './store/reducers/products';
-import cartReducer from './store/reducers/products';
+import cartReducer from './store/reducers/cart';
 import ShopNavigator from './navigation/ShopNavigator'
 
 const fetchFonts = () => {
   return Font.loadAsync({
     'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
     'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
-
   })
 }
 
@@ -21,7 +21,7 @@ const rootReducer = combineReducers({
   cart: cartReducer
 })
 
-const store = createStore(rootReducer)
+const store = createStore(rootReducer, composeWithDevTools())
 
 export default function App() {
 
