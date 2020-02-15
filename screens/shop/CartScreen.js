@@ -6,6 +6,7 @@ import Colors from '../../constants/Colors';
 
 import CartItem from './CartItem';
 import { removeFromCart } from '../../store/actions/cart';
+import * as orderActions from '../../store/actions/orders';
 
 const CartScreen = props => {
 
@@ -35,7 +36,12 @@ const CartScreen = props => {
     <View style={styles.screen}>
       <View style={styles.summary}>
         <Text style={styles.summaryText} >Total: <Text style={styles.amount}>${cartTotalAmount.toFixed(2)}</Text></Text>
-        <Button title="Order Now" />
+        <Button
+          color={Colors.secondary}
+          title="Order Now"
+          disabled={cartItems.length === 0}
+          onPress={() => dispatch(orderActions.addOrder(cartTotalAmount.toFixed(2)))}
+        />
       </View>
 
       <View>
